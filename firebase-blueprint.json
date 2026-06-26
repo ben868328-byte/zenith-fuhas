@@ -1,0 +1,59 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Stores user information and subcription status.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "isPremium": { "type": "boolean" },
+        "enrolledCourses": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Course": {
+      "title": "Course",
+      "description": "Core educational content for a course.",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "title": { "type": "string" },
+        "pdfUrl": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "audioUrl": { "type": "string" },
+        "quiz": { "type": "array" }
+      },
+      "required": ["code", "title"]
+    },
+    "Purchase": {
+      "title": "Purchase Record",
+      "description": "Records of course or all-access purchases.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "type": "string", "enum": ["single", "all"] },
+        "courseId": { "type": "string" },
+        "amount": { "type": "number" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "amount"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and subscription status."
+    },
+    "/courses/{courseId}": {
+      "schema": "Course",
+      "description": "Educational content for specific courses."
+    },
+    "/purchases/{purchaseId}": {
+      "schema": "Purchase",
+      "description": "Log of user payments."
+    }
+  }
+}

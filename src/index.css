@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-teal-custom: #006D77;
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+  --color-teal-950: #042f2e;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-editorial: "Playfair Display", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#F0F4F4] text-gray-900 font-sans;
+  }
+}
+
+.editorial-header {
+  font-family: var(--font-editorial);
+}
+
+.teal-accent {
+  color: var(--color-teal-custom);
+}
+
+.bg-teal-custom {
+  background-color: var(--color-teal-custom);
+}
+
+.border-teal-custom {
+  border-color: var(--color-teal-custom);
+}
